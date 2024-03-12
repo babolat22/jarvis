@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.competencia">
+  <ClassDiagramComponents>
+    <Class name="Bicicleta" package="competencia" visibility="public" xPosition="138.0" yPosition="20.0">
+      <Fields>
+        <Field name="nroSerie" type="int" visibility="private"/>
+        <Field name="rodado" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="nroSerie"/>
+          <Argument type="int" name="rodado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNroSerie" returnType="int" visibility="public"/>
+        <Method name="getRodado" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Carrera" package="competencia" visibility="public" xPosition="120.0" yPosition="277.0">
+      <Fields>
+        <Field name="fecha" type="LocalDate" visibility="private"/>
+        <Field name="distancia" type="String" visibility="private"/>
+        <Field name="circuito" type="String" visibility="private"/>
+        <Field name="atletas" type="ArrayList&lt;Triatleta&gt;" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="distancia"/>
+          <Argument type="String" name="circuito"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFecha" returnType="LocalDate" visibility="public"/>
+        <Method name="agregarAtleta" returnType="void" visibility="public">
+          <Argument type="Triatleta" name="atleta"/>
+        </Method>
+        <Method name="getAtletas" returnType="ArrayList&lt;Triatleta&gt;" visibility="public"/>
+        <Method name="Mostrar" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Inscripciones" package="competencia" visibility="public" xPosition="1099.0" yPosition="382.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Participante" package="competencia" visibility="public" xPosition="1099.0" yPosition="121.0">
+      <Fields>
+        <Field name="nroParticipante" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="Mostrar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Triatleta" package="competencia" visibility="public" xPosition="530.0" yPosition="201.0">
+      <Fields>
+        <Field name="tiempoTotal" type="double" visibility="package"/>
+        <Field name="resistencia" type="double" visibility="package"/>
+        <Field name="velocidad" type="int" visibility="package"/>
+        <Field name="fuerza" type="int" visibility="package"/>
+        <Field name="postura" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="double" name="resistencia"/>
+          <Argument type="int" name="velocidad"/>
+          <Argument type="int" name="fuerza"/>
+          <Argument type="int" name="postura"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularPotencia" returnType="double" visibility="public"/>
+        <Method name="Correr" returnType="double" visibility="public"/>
+        <Method name="Pedalear" returnType="void" visibility="public">
+          <Argument type="Bicicleta" name="bici"/>
+        </Method>
+        <Method name="Nadar" returnType="void" visibility="public"/>
+        <Method name="sumarTiempos" returnType="void" visibility="public"/>
+        <Method name="verTiempoTotal" returnType="void" visibility="public"/>
+        <Method name="Mostrar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Ciclista" package="competencia" visibility="public" xPosition="491.0" yPosition="39.0">
+      <Methods>
+        <Method name="Pedalear" returnType="void" visibility="public">
+          <Argument type="Bicicleta" name="bici"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="Corredor" package="competencia" visibility="public" xPosition="702.0" yPosition="20.0">
+      <Methods>
+        <Method name="calcularPotencia" returnType="double" visibility="public"/>
+        <Method name="Correr" returnType="double" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Nadador" package="competencia" visibility="public" xPosition="908.0" yPosition="30.0">
+      <Methods>
+        <Method name="Nadar" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="competencia.Triatleta" target="competencia.Corredor"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="competencia.Triatleta" target="competencia.Nadador"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="competencia.Triatleta" target="competencia.Ciclista"/>
+    <IsRelation name="is" source="competencia.Triatleta" target="competencia.Participante"/>
+    <HasRelation name="atletas" source="competencia.Carrera" target="competencia.Triatleta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Triatleta&gt;"/>
+    <UseRelation source="competencia.Ciclista" target="competencia.Bicicleta" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

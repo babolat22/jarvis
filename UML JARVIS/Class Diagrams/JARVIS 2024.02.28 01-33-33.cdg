@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="JARVIS">
+  <ClassDiagramComponents>
+    <Class name="Armadura" package="jarvis" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="colorPrimario" type="String" visibility="private"/>
+        <Field name="colorSecundario" type="String" visibility="private"/>
+        <Field name="botaIzquierda" type="Bota" visibility="private"/>
+        <Field name="botaDerecha" type="Bota" visibility="private"/>
+        <Field name="guanteIzquierdo" type="Guante" visibility="private"/>
+        <Field name="guanteDerecho" type="Guante" visibility="private"/>
+        <Field name="consola" type="Consola" visibility="private"/>
+        <Field name="sintetizador" type="Sintetizador" visibility="private"/>
+        <Field name="resistencia" type="float" visibility="private"/>
+        <Field name="salud" type="float" visibility="private"/>
+        <Field name="generador" type="Generador" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="colorPrimario"/>
+          <Argument type="String" name="colorSecundario"/>
+          <Argument type="float" name="resistencia"/>
+          <Argument type="float" name="salud"/>
+          <Argument type="Generador" name="generador"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="vincularDispositivos" returnType="void" visibility="public">
+          <Argument type="Bota" name="bota1"/>
+          <Argument type="Bota" name="bota2"/>
+          <Argument type="Guante" name="guante1"/>
+          <Argument type="Guante" name="guante2"/>
+        </Method>
+        <Method name="setGenerador" returnType="void" visibility="public">
+          <Argument type="Generador" name="generador"/>
+        </Method>
+        <Method name="caminar" returnType="void" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="correr" returnType="void" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="propulsar" returnType="void" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="volar" returnType="void" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="usarGuantesComoArmas" returnType="void" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="escribirEnConsola" returnType="void" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="hablarConSintetizador" returnType="void" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="consumirEnergia" returnType="void" visibility="private">
+          <Argument type="float" name="cantidad"/>
+        </Method>
+        <Method name="mostrarEstado" returnType="void" visibility="public"/>
+        <Method name="informarEstadoBateria" returnType="void" visibility="public"/>
+        <Method name="informarEstadoReactor" returnType="void" visibility="public"/>
+        <Method name="revisarDispositivos" returnType="void" visibility="public"/>
+        <Method name="destruirEnemigos" returnType="void" visibility="public">
+          <Argument type="Radar" name="radar"/>
+        </Method>
+        <Method name="accionesEvasivas" returnType="void" visibility="public">
+          <Argument type="float" name="distanciaEvasion"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Bota" package="jarvis" visibility="public" xPosition="1024.0" yPosition="359.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="float" name="consumoEnergia"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Consola" package="jarvis" visibility="public" xPosition="1024.0" yPosition="-12.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="float" name="consumoEnergia"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Dispositivo" package="jarvis" visibility="public" xPosition="1401.0" yPosition="108.0">
+      <Fields>
+        <Field name="consumoEnergia" type="float" visibility="private"/>
+        <Field name="danado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="float" name="consumoEnergia"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="usar" returnType="float" visibility="public">
+          <Argument type="int" name="nivelIntensidad"/>
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="estaDanado" returnType="boolean" visibility="public"/>
+        <Method name="reparar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Generador" package="jarvis" visibility="public" xPosition="770.0" yPosition="476.0">
+      <Fields>
+        <Field name="cargaMaxima" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="float" name="cargaMaxima"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="obtenerCargaMaxima" returnType="float" visibility="public"/>
+        <Method name="consumirEnergia" returnType="float" visibility="public">
+          <Argument type="float" name="cantidad"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Guante" package="jarvis" visibility="public" xPosition="1024.0" yPosition="108.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="float" name="consumoEnergia"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="disparar" returnType="float" visibility="public">
+          <Argument type="int" name="nivelIntensidad"/>
+          <Argument type="int" name="tiempo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Main" package="jarvis" visibility="public" xPosition="1401.0" yPosition="359.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ObjetoRadar" package="jarvis" visibility="public" xPosition="1190.0" yPosition="553.0">
+      <Fields>
+        <Field name="coordenadaX" type="double" visibility="private"/>
+        <Field name="coordenadaY" type="double" visibility="private"/>
+        <Field name="coordenadaZ" type="double" visibility="private"/>
+        <Field name="hostil" type="boolean" visibility="private"/>
+        <Field name="resistencia" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="coordenadaX"/>
+          <Argument type="double" name="coordenadaY"/>
+          <Argument type="double" name="coordenadaZ"/>
+          <Argument type="boolean" name="hostil"/>
+          <Argument type="float" name="resistencia"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCoordenadaX" returnType="double" visibility="public"/>
+        <Method name="setCoordenadaX" returnType="void" visibility="public">
+          <Argument type="double" name="coordenadaX"/>
+        </Method>
+        <Method name="getCoordenadaY" returnType="double" visibility="public"/>
+        <Method name="setCoordenadaY" returnType="void" visibility="public">
+          <Argument type="double" name="coordenadaY"/>
+        </Method>
+        <Method name="getCoordenadaZ" returnType="double" visibility="public"/>
+        <Method name="setCoordenadaZ" returnType="void" visibility="public">
+          <Argument type="double" name="coordenadaZ"/>
+        </Method>
+        <Method name="isHostil" returnType="boolean" visibility="public"/>
+        <Method name="setHostil" returnType="void" visibility="public">
+          <Argument type="boolean" name="hostil"/>
+        </Method>
+        <Method name="getResistencia" returnType="float" visibility="public"/>
+        <Method name="setResistencia" returnType="void" visibility="public">
+          <Argument type="float" name="resistencia"/>
+        </Method>
+        <Method name="recibirAtaque" returnType="void" visibility="public">
+          <Argument type="float" name="potenciaDisparo"/>
+        </Method>
+        <Method name="estaDestruido" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Radar" package="jarvis" visibility="public" xPosition="637.0" yPosition="686.0">
+      <Fields>
+        <Field name="MAX_OBJETOS" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="objetos" type="ObjetoRadar[]" visibility="private"/>
+        <Field name="cantidadObjetos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getObjetos" returnType="ObjetoRadar[]" visibility="public"/>
+        <Method name="setObjetos" returnType="void" visibility="public">
+          <Argument type="ObjetoRadar[]" name="objetos"/>
+        </Method>
+        <Method name="getCantidadObjetos" returnType="int" visibility="public"/>
+        <Method name="setCantidadObjetos" returnType="void" visibility="public">
+          <Argument type="int" name="cantidadObjetos"/>
+        </Method>
+        <Method name="agregarObjeto" returnType="void" visibility="public">
+          <Argument type="ObjetoRadar" name="objeto"/>
+        </Method>
+        <Method name="informarDistanciaEnemigos" returnType="void" visibility="public"/>
+        <Method name="calcularDistancia" returnType="double" visibility="public">
+          <Argument type="double" name="x"/>
+          <Argument type="double" name="y"/>
+          <Argument type="double" name="z"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Sintetizador" package="jarvis" visibility="public" xPosition="1024.0" yPosition="239.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="float" name="consumoEnergia"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="jarvis.Guante" target="jarvis.Dispositivo"/>
+    <HasRelation name="consola" source="jarvis.Armadura" target="jarvis.Consola" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="guanteIzquierdo" source="jarvis.Armadura" target="jarvis.Guante" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="sintetizador" source="jarvis.Armadura" target="jarvis.Sintetizador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="jarvis.Bota" target="jarvis.Dispositivo"/>
+    <HasRelation name="botaDerecha" source="jarvis.Armadura" target="jarvis.Bota" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="jarvis.Consola" target="jarvis.Dispositivo"/>
+    <HasRelation name="botaIzquierda" source="jarvis.Armadura" target="jarvis.Bota" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="objetos" source="jarvis.Radar" target="jarvis.ObjetoRadar" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="generador" source="jarvis.Armadura" target="jarvis.Generador" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="jarvis.Sintetizador" target="jarvis.Dispositivo"/>
+    <UseRelation source="jarvis.Armadura" target="jarvis.Radar" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="guanteDerecho" source="jarvis.Armadura" target="jarvis.Guante" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
