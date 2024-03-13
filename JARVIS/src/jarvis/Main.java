@@ -13,9 +13,11 @@ public class Main {
         ironMan.vincularDispositivos(botas[0], botas[1], guantes[0], guantes[1]);
         // Mostrar el estado de la armadura ANTES
         ironMan.mostrarEstado();
-        
+        // IRON ES LO MAS
         // Realizar algunas acciones
         ironMan.caminar(10);
+        System.out.println("");
+     
         ironMan.volar(5);
         ironMan.usarGuantesComoArmas(3);
 
